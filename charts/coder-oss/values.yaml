@@ -80,3 +80,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+coder:
+  # Use TLS internally
+  tls:
+    enabled: false

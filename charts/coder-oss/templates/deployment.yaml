@@ -36,7 +36,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-            {{- if .Values.coder.tls.secretName }}
+            {{- if .Values.coder.tls.enabled }}
             - name: CODER_ADDRESS
               value: "0.0.0.0:8443"
             - name: CODER_TLS_ENABLE
@@ -53,7 +53,7 @@ spec:
             {{ toYaml . | nindent 12 }}
             {{- end }}
           ports:
-            {{- if .Values.coder.tls.secretName }}
+            {{- if .Values.coder.tls.enabled }}
             - name: https
               containerPort: 8443
               protocol: TCP
