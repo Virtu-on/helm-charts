@@ -1,0 +1,17 @@
+apiVersion: v1
+entries:
+  coder-oss:
+  - apiVersion: v2
+    appVersion: 0.8.6
+    created: "2022-08-25T17:10:32.76030326+02:00"
+    description: A Helm chart for coder (https://github.com/coder/coder)
+    digest: 86dfe8d46f894270656806ff78bd3e43cc75c7a6e04f1303d272980477eb4e05
+    keywords:
+    - coder
+    kubeVersion: '>= 1.19.0-0'
+    name: coder-oss
+    type: application
+    urls:
+    - https://github.com/Virtu-on/helm-charts/releases/download/coder-oss-0.1.0/coder-oss-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-08-25T17:10:32.760322461+02:00"
