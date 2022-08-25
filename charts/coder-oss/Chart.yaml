@@ -1,0 +1,9 @@
+apiVersion: v2
+name: coder-oss
+description: A Helm chart for coder (https://github.com/coder/coder)
+keywords:
+- coder
+kubeVersion: '>= 1.19.0-0'
+type: application
+version: 0.1.0
+appVersion: "0.8.6"
