@@ -32,7 +32,8 @@ spec:
 {{- end }}
   resources:
     requests:
-      storage: 100Mi
+      storage: "100Mi"
 {{- end -}}
+
 ...
 {{- end }}
