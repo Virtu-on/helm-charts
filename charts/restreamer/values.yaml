@@ -36,16 +36,14 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-httpService:
-  type: ClusterIP
-  port: 80
-
-rtmpService:
-  enabled: false
+Service:
   annotations:
     external-dns.alpha.kubernetes.io/hostname: rtmp.cluster-example.local
-  type: LoadBalancer
-  port: 1935
+  type: ClusterIP
+  port: 80
+  rtmp:
+    enabled: false
+    port: 1935
 
 ingress:
   enabled: false
@@ -93,6 +91,9 @@ env:
   CORE_LOG_LEVEL: info
   CORE_RTMP_ENABLE: false
   CORE_RTMP_TOKEN: ""
+  # when using service.type: LoadBalancer in stead of ingress this is usefull
+  CORE_TLS_ENABLE: true
+  CORE_TLS_AUTO: true
 secretEnv:
   CORE_API_AUTH_USERNAME: admin
   CORE_API_AUTH_PASSWORD: ""

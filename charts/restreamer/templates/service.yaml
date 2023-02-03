@@ -9,35 +9,17 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  type: {{ .Values.httpService.type }}
+  type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.httpService.port }}
+    - port: {{ .Values.service.port }}
       targetPort: http
       protocol: TCP
       name: http
-  selector:
-    {{- include "restreamer.selectorLabels" . | nindent 4 }}
-
-{{- if .Values.rtmpService.enabled }}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: "{{ include "restreamer.fullname" . }}-rtmp"
-  labels:
-    {{- include "restreamer.labels" . | nindent 4 }}
-  {{- with .Values.rtmpService.annotations }}
-  annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
-spec:
-  type: {{ .Values.rtmpService.type }}
-  ports:
-    - port: {{ .Values.rtmpService.port }}
+  {{- if .Values.service.rtmp.enabled }}
+    - port: {{ .Values.service.rtmp.port }}
       targetPort: rtmp
       protocol: TCP
       name: rtmp
+  {{- end }}
   selector:
     {{- include "restreamer.selectorLabels" . | nindent 4 }}
-
-{{- end }}
