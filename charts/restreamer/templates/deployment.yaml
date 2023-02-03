@@ -41,8 +41,8 @@ spec:
               protocol: TCP
             - name: rtmp
               containerPort: 1935
-              {{- if .Values.rtmpService.enabled }}
-              hostPort: {{ .Values.rtmpService.port }}
+              {{- if .Values.service.rtmp.enabled }}
+              hostPort: {{ .Values.service.rtmp.port }}
               {{- end }}
           livenessProbe:
             httpGet:
@@ -54,7 +54,7 @@ spec:
               port: http
           volumeMounts:
           - name: data
-            mountPath: /data
+            mountPath: /core
             {{- if and .Values.persistence.enabled .Values.persistence.subPath }}
             subPath: {{ .Values.persistence.subPath }}
             {{- end }}
