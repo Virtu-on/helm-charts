@@ -15,6 +15,12 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+  {{- if .Values.env.CORE_TLS_ENABLE }}
+    - port: {{ .Values.service.sslPort }}
+      targetPort: https
+      protocol: TCP
+      name: rtmp
+  {{- end }}
   {{- if .Values.service.rtmp.enabled }}
     - port: {{ .Values.service.rtmp.port }}
       targetPort: rtmp

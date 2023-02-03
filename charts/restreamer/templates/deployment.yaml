@@ -39,9 +39,16 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
+            {{- if .Values.env.CORE_TLS_ENABLE  }}
+            - name: https
+              containerPort: 8181
+              protocol: TCP
+            {{- end }}
+            {{- if .Values.env.CORE_RTMP_ENABLE  }}
             - name: rtmp
               containerPort: 1935
               protocol: TCP
+            {{- end }}
             {{- if .Values.env.CORE_RTMP_ENABLE_TLS  }}
             - name: rtmps
               containerPort: 1936
