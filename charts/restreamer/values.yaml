@@ -42,9 +42,8 @@ service:
   type: ClusterIP
   port: 80
   sslPort: 443
-  rtmp:
-    enabled: false
-    port: 1935
+  rtmpPort: 1935
+  rtmpsPort: 1936
 
 ingress:
   enabled: false

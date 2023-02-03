@@ -19,16 +19,16 @@ spec:
     - port: {{ .Values.service.sslPort }}
       targetPort: https
       protocol: TCP
-      name: rtmp
+      name: https
   {{- end }}
-  {{- if .Values.service.rtmp.enabled }}
-    - port: {{ .Values.service.rtmp.port }}
+  {{- if .Values.env.CORE_RTMP_ENABLE }}
+    - port: {{ .Values.service.rtmpPort }}
       targetPort: rtmp
       protocol: TCP
       name: rtmp
   {{- end }}
   {{- if .Values.env.CORE_RTMP_ENABLE_TLS  }}
-    - port: 1936
+    - port: {{ .Values.service.rtmpsPort }}
       targetPort: rtmps
       protocol: TCP
       name: rtmps
