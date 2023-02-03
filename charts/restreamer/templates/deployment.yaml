@@ -30,6 +30,11 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "restreamer.fullname" . }}
+            - secretRef:
+                name: {{ include "restreamer.fullname" . }}
           ports:
             - name: http
               containerPort: 8080
