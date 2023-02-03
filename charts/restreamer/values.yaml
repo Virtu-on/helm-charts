@@ -91,7 +91,7 @@ externalTlsSecret:
 persistence:
   enabled: false
   accessMode: ReadWriteOnce
-  size: 800Mi
+  size: 1Gi
   #storageClass:
   #existingDataClaim: "restreamer-data"
   #existingConfigClaim: "restreamer-config"
