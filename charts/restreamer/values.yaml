@@ -97,11 +97,12 @@ env:
   CORE_LOG_LEVEL: info
   CORE_RTMP_ENABLE: false
   CORE_RTMP_TOKEN: ""
+  CORE_RTMP_ENABLE_TLS: false
   CORE_TLS_ENABLE: false
   # when using service.type: LoadBalancer and TLS_ENABLE
   # set either env.CORE_TLS_AUTO or externalTlsSecret
   CORE_TLS_AUTO: false
-  CORE_TLS_ADDRESS: :443
+  CORE_TLS_ADDRESS: :8181
   CORE_TLS_CERTFILE: /core/tls/tls.crt
   CORE_TLS_KEYFILE: /core/tls/tls.key
   CORE_HOST_AUTO: false
