@@ -85,7 +85,8 @@ persistence:
   accessMode: ReadWriteOnce
   size: 800Mi
   #storageClass:
-  #existingClaim: "restreamer-pvc"
+  #existingDataClaim: "restreamer-data"
+  #existingConfigClaim: "restreamer-config"
 
 env:
   CORE_LOG_LEVEL: info
