@@ -4,7 +4,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: restreamer-data
+  name: {{ template "restreamer.fullname" . }}"-data"
 spec:
   accessModes:
     - {{ .Values.persistence.accessMode | quote }}
@@ -21,7 +21,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: restreamer-config
+  name: {{ template "restreamer.fullname" . }}"-config"
 spec:
   accessModes:
     - {{ .Values.persistence.accessMode | quote }}
