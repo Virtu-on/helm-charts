@@ -77,14 +77,14 @@ spec:
       - name: data
         {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.existingDataClaim }}{{ .Values.persistence.existingDataClaim }}{{- else }}{{ template "restreamer.fullname" . }}"-data"{{- end }}
+          claimName: {{ if .Values.persistence.existingDataClaim }}{{ .Values.persistence.existingDataClaim }}{{- else }}{{ include "restreamer.fullname" . }}-data{{- end }}
         {{- else }}
         emptyDir: {}
         {{- end }}
       - name: config
         {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.existingConfigClaim }}{{ .Values.persistence.existingConfigClaim }}{{- else }}{{ template "restreamer.fullname" . }}"-config"{{- end }}
+          claimName: {{ if .Values.persistence.existingConfigClaim }}{{ .Values.persistence.existingConfigClaim }}{{- else }}{{ include "restreamer.fullname" . }}-config{{- end }}
         {{- else }}
         emptyDir: {}
         {{- end }}

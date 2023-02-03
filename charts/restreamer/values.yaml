@@ -89,7 +89,7 @@ externalTlsSecret:
 
 ## Persist data to a persitent volume
 persistence:
-  enabled: false
+  enabled: true
   accessMode: ReadWriteOnce
   size: 1Gi
   storageClass: ""
