@@ -83,7 +83,7 @@ affinity: {}
 externalTlsSecret:
   enabled: false
   name: restreamer-tls
-  auto: true
+  auto: false
   autoHostname: "restreamer.cluster-example.local"
   issuer: letsencrypt-production
 

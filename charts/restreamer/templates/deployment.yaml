@@ -55,6 +55,10 @@ spec:
             mountPath: /core/data
           - name: config
             mountPath: /core/config
+          {{- if .Values.externalTlsSecret.enabled  }}
+          - name: tlsCertificates
+            mountPath: /core/tls
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
@@ -72,12 +76,11 @@ spec:
         {{- else }}
         emptyDir: {}
         {{- end }}
-
       {{- if .Values.externalTlsSecret.enabled  }}
-        - name: tlsCertificates
+      - name: tlsCertificates
+        secret:
           secretName: {{ .Values.externalTlsSecret.name }}
       {{- end }}
-
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
