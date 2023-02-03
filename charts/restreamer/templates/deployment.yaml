@@ -41,9 +41,7 @@ spec:
               protocol: TCP
             - name: rtmp
               containerPort: 1935
-              {{- if .Values.service.rtmp.enabled }}
-              hostPort: {{ .Values.service.rtmp.port }}
-              {{- end }}
+              protocol: TCP
           livenessProbe:
             httpGet:
               path: /
