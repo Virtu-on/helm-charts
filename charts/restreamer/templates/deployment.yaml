@@ -42,6 +42,11 @@ spec:
             - name: rtmp
               containerPort: 1935
               protocol: TCP
+            {{- if .Values.env.CORE_RTMP_ENABLE_TLS  }}
+            - name: rtmps
+              containerPort: 1936
+              protocol: TCP
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /

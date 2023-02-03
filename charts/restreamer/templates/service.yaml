@@ -21,5 +21,11 @@ spec:
       protocol: TCP
       name: rtmp
   {{- end }}
+  {{- if .Values.env.CORE_RTMP_ENABLE_TLS  }}
+    - port: 1936
+      targetPort: rtmps
+      protocol: TCP
+      name: rtmps
+  {{- end }}
   selector:
     {{- include "restreamer.selectorLabels" . | nindent 4 }}
