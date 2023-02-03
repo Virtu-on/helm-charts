@@ -72,6 +72,12 @@ spec:
         {{- else }}
         emptyDir: {}
         {{- end }}
+
+      {{- if .Values.externalTlsSecret.enabled  }}
+        - name: tlsCertificates
+          secretName: {{ .Values.externalTlsSecret.name }}
+      {{- end }}
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
