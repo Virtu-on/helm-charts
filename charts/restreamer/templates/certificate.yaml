@@ -1,0 +1,16 @@
+{{- if .Values.externalTlsSecret.auto }}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ .Values.externalTlsSecret.name }}
+spec:
+  commonName: {{ .Values.externalTlsSecret.autoHostname }}
+  dnsNames:
+  - {{ .Values.externalTlsSecret.autoHostname }}
+  issuerRef:
+    group: cert-manager.io
+    kind: Issuer
+    name: {{ .Values.externalTlsSecret.issuer }}
+  secretName: {{ .Values.externalTlsSecret.name }}
+{{- end }}
