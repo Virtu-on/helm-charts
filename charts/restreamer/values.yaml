@@ -92,7 +92,7 @@ persistence:
   enabled: false
   accessMode: ReadWriteOnce
   size: 1Gi
-  #storageClass:
+  storageClass: ""
   #existingDataClaim: "restreamer-data"
   #existingConfigClaim: "restreamer-config"
 
