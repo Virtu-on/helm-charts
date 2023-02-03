@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "restreamer.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "restreamer.fullname" . }}:{{ .Values.httpService.port }}']
   restartPolicy: Never

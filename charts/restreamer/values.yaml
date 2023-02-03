@@ -36,12 +36,15 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-service:
+httpService:
   type: ClusterIP
   port: 80
 
 rtmpService:
   enabled: false
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: rtmp.cluster-example.local
+  type: LoadBalancer
   port: 1935
 
 ingress:
@@ -85,3 +88,11 @@ persistence:
   size: 800Mi
   #storageClass:
   #existingClaim: "restreamer-pvc"
+
+env:
+  CORE_LOG_LEVEL: info
+  CORE_RTMP_ENABLE: false
+  CORE_RTMP_TOKEN: ""
+secretEnv:
+  CORE_API_AUTH_USERNAME: admin
+  CORE_API_AUTH_PASSWORD: ""
