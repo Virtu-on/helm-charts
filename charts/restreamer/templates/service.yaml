@@ -26,7 +26,7 @@ metadata:
   name: "{{ include "restreamer.fullname" . }}-rtmp"
   labels:
     {{- include "restreamer.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
+  {{- with .Values.rtmpService.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
