@@ -73,6 +73,16 @@ entries:
   restreamer:
   - apiVersion: v2
     appVersion: 2.4.2
+    created: "2023-02-03T19:07:06.332084258Z"
+    description: A restreamer Helm chart for Kubernetes
+    digest: 08a0e55d431d246523fb635a09e23ae89165fb72cf65a7a9240403d6cd177e14
+    name: restreamer
+    type: application
+    urls:
+    - https://github.com/Virtu-on/helm-charts/releases/download/restreamer-0.1.22/restreamer-0.1.22.tgz
+    version: 0.1.22
+  - apiVersion: v2
+    appVersion: 2.4.2
     created: "2023-02-03T19:00:39.543733134Z"
     description: A restreamer Helm chart for Kubernetes
     digest: 150029edef3f5dd4e9dafb85ecc262135d3f3af145b03e61bf2f9e49a8e14959
