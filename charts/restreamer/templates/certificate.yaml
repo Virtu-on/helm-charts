@@ -13,4 +13,6 @@ spec:
     kind: Issuer
     name: {{ .Values.externalTlsSecret.issuer }}
   secretName: {{ .Values.externalTlsSecret.name }}
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
 {{- end }}
