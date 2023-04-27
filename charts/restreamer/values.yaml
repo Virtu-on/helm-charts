@@ -85,7 +85,8 @@ externalTlsSecret:
   name: restreamer-tls
   auto: false
   autoHostname: "restreamer.cluster-example.local"
-  issuer: letsencrypt-production
+  issuerName: letsencrypt-production
+  issuerKind: ClusterIssuer
 
 ## Persist data to a persitent volume
 persistence:

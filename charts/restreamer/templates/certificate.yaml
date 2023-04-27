@@ -10,8 +10,8 @@ spec:
   - {{ .Values.externalTlsSecret.autoHostname }}
   issuerRef:
     group: cert-manager.io
-    kind: Issuer
-    name: {{ .Values.externalTlsSecret.issuer }}
+    kind: {{ .Values.externalTlsSecret.issuerKind }}
+    name: {{ .Values.externalTlsSecret.issuername }}
   secretName: {{ .Values.externalTlsSecret.name }}
   duration: 2160h # 90d
   renewBefore: 360h # 15d
