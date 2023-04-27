@@ -11,7 +11,7 @@ spec:
   issuerRef:
     group: cert-manager.io
     kind: {{ .Values.externalTlsSecret.issuerKind }}
-    name: {{ .Values.externalTlsSecret.issuername }}
+    name: {{ .Values.externalTlsSecret.issuerName }}
   secretName: {{ .Values.externalTlsSecret.name }}
   duration: 2160h0m0s # 90d
   renewBefore: 360h0m0s # 15d
